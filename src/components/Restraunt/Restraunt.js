@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Cart from '../Cart/Cart';
 import Food from '../Food/Food';
 import './Restraunt.css'
 const Restraunt = () => {
@@ -8,8 +9,12 @@ const Restraunt = () => {
             .then(res => res.json())
             .then(data => setFoods(data.meals))
     }, [])
-    const addToCart = () => {
-        console.log('click')
+    const [heading, setHeading] = useState('')
+    const addToCart = (name) => {
+
+        const newCart = [...heading, name]
+        // console.log(newCart)
+        setHeading(newCart)
     }
     return (
         <div className='restraunt-container'>
@@ -19,7 +24,7 @@ const Restraunt = () => {
                 }
             </div>
             <div className='cart-container'>
-                <h1>cart</h1>
+                <Cart name={heading}></Cart>
             </div>
         </div >
     );
