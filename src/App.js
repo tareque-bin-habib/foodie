@@ -1,10 +1,11 @@
 import logo from './logo.svg';
 import './App.css';
+import Header from './components/Header/Header';
 
 function App() {
   return (
-    <div className="App">
-      <h1>My nam is some</h1>
+    <div className="">
+      <Header></Header>
     </div>
   );
 }
